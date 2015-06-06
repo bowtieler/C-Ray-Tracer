@@ -9,27 +9,21 @@
 // values of the intersection with the shape's r, g, and b.
 bool sphere::Intersect(const ray &R, intersection &inter)
 {
-	//cout << "\n[[Sphere Class]]" << endl;
 	double t1, t2;
 	double A, B, C;
 
 	vector Q = (R.p - center);
-	//cout << R.p << " - " << center << " = " << Q << endl;
 	
 	A = Dot(R.v, R.v); 
 	B = 2.0 * Dot(R.v, Q);
 	C = Dot(Q, Q) - sqr(radius);
-	//cout << "A = " << A << "\nB = " << B << "\nC = " << C << endl;
 
 	double discriminant = sqr(B) - 4*A*C;
-	//cout << "discriminant = " << discriminant << endl;
 	if (discriminant >= 0)
 	{
 		double q = -.5 * (B + sgn(B)*sqrt(discriminant));
 		t1 = q / A;
 		t2 = C / q;
-		//cout << "q = -0.5 * (B + sign(B)*sqrt(discriminant) -> q = -0.5 * (" << B << " + " << sgn(B) << " * " << sqrt(discriminant) << "\n\t = " << q << endl;
-		//cout << "t1 = " << t1 << "\nt2 = " << t2 << endl;
 
 		if ((t1 < 0) || (t2 < 0))
 		{

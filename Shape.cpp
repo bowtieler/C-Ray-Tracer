@@ -66,11 +66,8 @@ ray shape::TransformRay(const ray &r)
 	// Return the ray transformed by this object's transform.
 	// Hint: how do you transform a ray?
 
-	shape s = *this;
 	ray result;
 
-	result.p = r.p;
-	result.v = r.v;
 
 	return result;
 }
@@ -122,10 +119,7 @@ void shape::RecalculateMatrices(void)
 
 	matrix S, Rx, Ry, Rz, T;
 	matrix S_Inv, Rx_Inv, Ry_Inv, Rz_Inv, T_Inv;
-	cout << "RecalculateMatrices" << endl;
 
-	shape s = *this;
-	cout << s[0] << endl;
 
 	// To Do
 	//
